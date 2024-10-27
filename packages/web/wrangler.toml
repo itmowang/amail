@@ -1,0 +1,9 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "amail"
+compatibility_date = "2023-05-18"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "./dist"
+
+[[kv_namespaces]]
+binding = "amailkv"
+id = "9c967e7ec976444ba800520bd50931ce"

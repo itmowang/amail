@@ -1,0 +1,27 @@
+{
+  "name": "@amail/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "npm run build && wrangler pages dev",
+    "postinstall": "nuxt prepare",
+    "builds": "npm run build && wrangler pages deploy",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "cloudflare-kv-wrapper": "^1.1.0",
+    "hono-kv-session": "^1.0.0",
+    "nuxt": "^3.13.2",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "nitro-cloudflare-dev": "^0.2.1",
+    "wrangler": "^3.83.0"
+  }
+}

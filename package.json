@@ -1,0 +1,19 @@
+{
+  "name": "amail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r builds"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "mit",
+  "dependencies": {
+    "typescript": "^5.5.4"
+  }
+}

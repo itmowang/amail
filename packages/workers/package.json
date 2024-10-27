@@ -1,0 +1,22 @@
+{
+  "name": "@amail/workers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "dev": "wrangler dev main.ts",
+    "builds": "npx tsc && wrangler deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.8.1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "hono": "^4.5.10",
+    "typescript": "^5.5.4"
+  }
+}

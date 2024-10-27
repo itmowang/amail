@@ -1,0 +1,15 @@
+name = "amaiserver" # todo
+main = "./dist/main.js"
+compatibility_date = "2022-10-10"
+
+[vars]
+MY_NAME = "Hono"
+
+[[kv_namespaces]]
+binding = "amailkv"
+id = "9c967e7ec976444ba800520bd50931ce"
+
+
+[observability]
+enabled = true
+head_sampling_rate = 1
