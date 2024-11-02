@@ -17,6 +17,7 @@
   "dependencies": {
     "crypto-js": "^4.2.0",
     "hono": "^4.5.10",
+    "postal-mime": "^2.3.2",
     "typescript": "^5.5.4"
   }
 }

@@ -8,11 +8,11 @@
           @click="generateAnonymousEmail" 
           class="w-full bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg"
         >
-          生成随机匿名邮箱
+         {{ isEmailsLoaded ?"重新生成匿名邮箱":"生成匿名邮箱" }} 
         </button>
-        <div v-if="anonymousEmail" class="mt-6 text-center">
+        <div v-if="isEmailsLoaded" class="mt-6 text-center">
           <p class="font-semibold">邮箱: <span class="text-blue-300">{{ anonymousEmail }}</span></p>
-          <p class="text-gray-400">有效期: <span class="text-red-400">{{ expiryTime }}</span></p>
+          <p class="text-gray-400">每封邮件保留有效期: <span class="text-red-400">60分钟</span></p>
         </div>
 
         <h2 class="text-lg font-semibold mt-6">邮件列表</h2>
@@ -24,7 +24,7 @@
             @click="selectEmail(index)"
           >
             <h3 class="font-bold text-lg">{{ email.subject }}</h3>
-            <p class="text-gray-300">{{ email.preview }}</p>
+            <p class="text-gray-300"> {{email.from.name}} - {{ email.from.address }}</p>
           </li>
         </ul>
       </div>
@@ -33,7 +33,7 @@
         <h2 class="text-2xl font-bold mb-4">阅读邮件</h2>
         <div v-if="selectedEmail" class="bg-gray-100 p-4 rounded-lg shadow">
           <h3 class="font-bold text-xl">{{ selectedEmail.subject }}</h3>
-          <p class="text-gray-700 mt-2">{{ selectedEmail.content }}</p>
+          <p class="text-gray-700 mt-2" v-html="selectedEmail.html"></p>
         </div>
         <p v-else class="text-gray-500">请选择一封邮件查看内容。</p>
       </div>
@@ -43,30 +43,50 @@
 
 <script setup>
 import { ref,onMounted } from 'vue';
-const { data } = await useFetch('/api/test')
 
 onMounted(async () => {
-
+  getApp()
 });
 
 const anonymousEmail = ref('');
-const expiryTime = ref('');
 const emailList = ref([]);
 const selectedEmail = ref(null);
+const isEmailsLoaded = ref(false);
+
+// watch监听isEmailsLoaded为true  才会触发每10秒刷新一次数据
+watch(isEmailsLoaded, async (newValue) => {
+  if (newValue) {
+    await load();
+    await setInterval(load,10000);
+  }
+});
+
+const load = async ()=>{
+  const {data} = await useFetch(`https://amaiserver.loli5.workers.dev/api/mail/tt?name=${anonymousEmail.value}`)
+  emailList.value = data.value
+}
+// 初始化的时候查看缓存是否存在app 如果有那么就保持有效状态
+const getApp = () => {
+  const app = JSON.parse(localStorage.getItem('app')) ;
+  if(app?.email){
+    // base64 解码
+    const email = atob(app.email);
+    isEmailsLoaded.value = true;
+    anonymousEmail.value = email;
+  }
+};
+
+
 
 const generateAnonymousEmail = () => {
-  const randomEmail = `user${Math.floor(Math.random() * 10000)}@anonymous.com`;
-  const now = new Date();
-  const expiry = new Date(now.getTime() + 60 * 60 * 1000); // 1小时有效期
+  isEmailsLoaded.value = true;
+  const randomEmail = `${Math.floor(Math.random() * 10000)}@xmw.pw`;
+  // 随机的randomEmail转换成为base64编码
+  const base64Email = btoa(randomEmail);
+  // 存入到浏览器的localStorage
+  localStorage.setItem('app', JSON.stringify( {email:base64Email}));
   anonymousEmail.value = randomEmail;
-  expiryTime.value = expiry.toLocaleString();
 
-  // 添加一封测试邮件
-  emailList.value.push({
-    subject: '测试邮件',
-    preview: '这是邮件的预览内容...',
-    content: '这是邮件的详细内容。',
-  });
 };
 
 const selectEmail = (index) => {
