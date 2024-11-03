@@ -81,7 +81,7 @@ const getApp = () => {
 };
 
 const verifrCode = () => {
-  if (isEmailsLoaded.value) {
+  if (widgetId.value) {
     turnstile.reset(widgetId.value)
   } else {
     const id = turnstile.render("#example-container", {
