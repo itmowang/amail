@@ -5,7 +5,7 @@
   "main": "main.ts",
   "scripts": {
     "dev": "wrangler dev main.ts",
-    "builds": "npx tsc && wrangler deploy"
+    "deploys": "npx tsc && wrangler deploy"
   },
   "keywords": [],
   "author": "",

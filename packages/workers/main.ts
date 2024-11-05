@@ -7,7 +7,6 @@ import mail from "./src/mail";
 const app = new Hono().basePath("/api");
 
 app.use("*", cors());
-
 app.get("/", (c) => c.text("GET /"));
 app.post("/", (c) => c.text("POST /"));
 app.put("/", (c) => c.text("PUT /"));

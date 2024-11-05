@@ -8,12 +8,14 @@
   ],
   "scripts": {
     "dev": "pnpm -r dev",
-    "build": "pnpm -r builds"
+    "build": "pnpm -C ./packages/web deploys && pnpm -C ./packages/workers deploys"
   },
   "keywords": [],
   "author": "",
   "license": "mit",
   "dependencies": {
+    "@amail/web": "workspace:^",
+    "@amail/workers": "workspace:^",
     "typescript": "^5.5.4"
   }
 }
