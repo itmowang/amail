@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      API_URL: "amail.xmw.pw",
-      EMAIL_DOMAIN: "xmw.pw"
+      API_URL: "amail.misso.me",
+      EMAIL_DOMAIN: "misso.me"
     }
   },
   app: {

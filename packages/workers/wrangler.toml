@@ -1,4 +1,4 @@
-name = "amaiserver" # todo
+name = "shiny-art-b402" # todo
 main = "./dist/main.js"
 compatibility_date = "2022-10-10"
 
@@ -6,8 +6,8 @@ compatibility_date = "2022-10-10"
 EMAIL_TIMEOUT = 3600
 
 [[kv_namespaces]]
-binding = "amailkv"
-id = "9c967e7ec976444ba800520bd50931ce"
+binding = "MISSO_EMAILS"
+id = "a0f22d03d73749aab676c00a96b07b34"
 
 
 [observability]
