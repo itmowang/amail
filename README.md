@@ -2,8 +2,16 @@
 
 AMAIL 是一个基于Cloudflare Email Routeing的邮件服务，用于快速搭建临时邮箱服务。
 
+如果您有使用问题,或者想给我提出建议，欢迎到[GitHub](https://github.com/itmowang/amail)提issue。
+
+或者添加我微信和QQ联系我。
+
+<img src="http://blog.loli.wang/my/wx.jpg" width="200" />
+<img src="http://blog.loli.wang/my/qq.jpg" width="200" />
 
 # 快速上手
+
+tips: 将 **/packages/workers/** 和 **/packages/web/** 中的 wrangler.example.toml 文件名改为 wrangler.toml
 
 1. 创建一个 Cloudflare 账户，并且绑定好一个属于自己的域名。 并且创建一个 Cloudflare Pages 项目。和一个 Cloudflare Workers。同样的也建立好KV存储。
 
@@ -38,3 +46,7 @@ pnpm build
 [演示地址](https://xmw.pw)
 
 [GitHub](https://github.com/itmowang/amail)
+
+### 下一步
+
+1. 优化样式，增加体验

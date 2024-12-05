@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: '这一一个使用nuxtjs编写的临时邮箱' }
+        { hid: 'description', name: 'description', content: '这是一个使用nuxtjs编写的临时邮箱' }
       ],
       link: [
         {

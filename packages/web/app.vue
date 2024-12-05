@@ -2,7 +2,7 @@
  <div class="bg-gray-900">
    <!-- GitHub 跳转按钮 -->
    <div class="mt-6 text-center absolute right-4 top-4">
-     <a href="https://github.com/your-username" target="_blank"
+     <a href="https://github.com/itmowang/amail" target="_blank"
        class="w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-all transform hover:scale-105 shadow-lg">
        <!-- GitHub 图标 -->
        <i class="fab fa-github"></i>

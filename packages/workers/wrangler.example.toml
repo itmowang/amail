@@ -1,0 +1,15 @@
+name = "amailserver" # todo
+main = "./dist/main.js"
+compatibility_date = "2022-10-10"
+
+[vars]
+EMAIL_TIMEOUT = 3600
+
+[[kv_namespaces]]
+binding = "amailkv"
+id = "id-test"
+
+
+[observability]
+enabled = true
+head_sampling_rate = 1
